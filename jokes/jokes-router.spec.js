@@ -14,7 +14,7 @@ describe('Testing to make sure we get jokes', () => {
         it("should return status 200", async () => {
             let token = 12;
             await request(server).post('/api/auth/register').send(user).then(res => {token = res.body.token});
-            console.log(token);
+            // console.log(token);
             return await request(server).get('/api/jokes').set({authorization: token}).then(res => expect(res.status).toBe(200));
         });
 
